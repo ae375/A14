@@ -1,0 +1,44 @@
+<!Doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ahmad Elmzaghi</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function setCookie(name){
+            document.cookie = name + ";path=/"
+        }
+        function getCookie(name) {
+            var cname = name + "=";
+            var decodedCookie = decodeURIComponent(document.cookie);
+            var ca = decodedCookie.split(';');
+            for(var i = 0; i <ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(cname) == 0) {
+                    return c.substring(cname.length, c.length);
+                }
+            }
+            return "";
+        }
+        function checkCookie(){
+            var name1 = getCookie("name1")
+            if (name != "") {
+                alert("Hello there" + name1);
+            } else{
+                name1 = prompt("Enter Something Here:", "");
+                if (name1 != "" && name1 != null) {
+                    setCookie("name1", name1)
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="checkCookie()">
+    <footer style="background-color: gray; ">
+    <p style="color: white; padding-bottom: 2em; padding-top: 2em">&copy; Ahmad Elmzaghi 11/17/2020</p>
+    </footer>
+</body>
+</html>
